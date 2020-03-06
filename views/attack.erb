@@ -1,1 +1,15 @@
-<p>You hit <%= @player2 %></p>
+<% if @game.player1.turn == false %>
+       You hit <%= @game.player2.name %> </p>
+<% else %>
+        You hit <%= @game.player1.name %> </p>
+<% end %>
+    
+<% if @game.player1.lose == true %>
+    <p><%= @game.player2.name %> Wins</p>
+<% elsif @game.player2.lose == true %>
+    <p><%= @game.player1.name %> Wins</p>
+<% end %>
+
+<form action="/play" method="get">
+    <input type="submit" value="Back" id="back">
+</form>
